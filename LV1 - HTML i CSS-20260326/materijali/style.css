@@ -1,0 +1,267 @@
+/* Opći stilovi */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* side-by-side */
+    gap: 20px; /* razmak između tablice i aside */
+    align-items: flex-start;
+}
+
+/* Header i navigacija */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+table {
+    width: 65%; /* zauzima veći dio */
+}
+
+aside.fotografije {
+    width: 30%; /* desno od tablice */
+}
+
+aside.fotografije:hover {
+    background-color: #2980b9;
+}
+
+
+.nav-menu .dropdown {
+    display: none; /* skriveno po defaultu */
+    position: absolute;
+    top: 100%; /* odmah ispod roditelja */
+    left: 0;
+    background-color: #222;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 150px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Stil za stavke dropdown-a */
+.nav-menu .dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu .dropdown li a:hover {
+    background-color: #3498db;
+}
+
+/* Pokaži dropdown kada hoveraš roditelja */
+.nav-menu li:hover > .dropdown {
+    display: block;
+}
+
+/* Sekcije */
+.content {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox za podatke */
+.data-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Flexbox analiza sekcija */
+.analysis-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* wrap */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.analysis-box {
+    background: #e3e3e3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+/* Flexbox za kontakt formu */
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+input, button {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background: #222;
+    color: white;
+}
+
+/* Mobile-friendly zoom slika (index.html) */
+.zoom-wrap{
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.zoom-img{
+  display: block;
+  width: 100%;
+  height: auto;          /* ključno za mobitel */
+  max-width: 100%;
+  transition: transform 0.25s ease;
+  transform-origin: center;
+}
+
+/* Desktop/laptop: hover zoom */
+@media (hover: hover) and (pointer: fine){
+  .zoom-wrap:hover .zoom-img{
+    transform: scale(1.06);
+  }
+}
+
+/* Mobitel: bez hover-zooma, samo normalno prilagođena širina */
+@media (max-width: 600px){
+  .zoom-wrap{
+    border-radius: 12px;
+  }
+  .zoom-img{
+    transform: none;
+  }
+}
+
+/* Mobile-friendly zoom slika (index.html) */
+.zoom-wrap{
+  max-width: 100%;
+  overflow: hidden;       /* bitno: sprječava “izlijevanje” pri zoomu */
+  border-radius: 14px;
+}
+
+.zoom-img{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;           /* bitno za mobitel */
+  transition: transform 0.25s ease;
+  transform-origin: center;
+}
+
+/* Desktop/laptop: hover zoom */
+@media (hover: hover) and (pointer: fine){
+  .zoom-wrap:hover .zoom-img{
+    transform: scale(1.06);
+  }
+}
+
+/* Mobitel: bez hover-zooma, samo normalno prilagođena širina */
+@media (max-width: 600px){
+  .zoom-img{
+    transform: none;
+  }
+}
+
+.fotografije{
+  max-width: 100%;
+  margin-top: 16px;
+}
+
+
+
+/* Responzivnost */
+@media (max-width: 768px) {
+
+    table {
+        width: 60%; /* zauzima veći dio */
+    }
+
+    .container {
+        flex-direction: column; /* elementi jedan ispod drugog */
+        align-items: center;
+    }
+
+    table, aside.fotografije {
+        width: 90%; /* zauzima skoro cijeli ekran */
+        margin: 0 auto; /* centrirano */
+    }
+
+    .data-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .analysis-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-flex input, .form-flex button {
+        width: 100%;
+    }
+}
